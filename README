@@ -10,7 +10,7 @@ You can change env vars in config/.env file.
 1(Go installed):
     run in main folder these commands:
      a. go build
-     b. go run url_shortener
+     b. go run main.go 
 2.(Docker):
     run in main folder these commands:
     a. docker build . -t url_shortener

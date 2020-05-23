@@ -14,6 +14,6 @@ ADD . /go/src/url_shortener
 
 RUN go build
 
-CMD go run url_shortener
+CMD go run main.go 
 
 EXPOSE 8080
