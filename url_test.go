@@ -20,6 +20,7 @@ import (
 var url models.Url = models.Url{}
 
 func TestCreateUrl(t *testing.T) {
+	helpers.CreateDB()
 	url := getUrl()
 	destinationUrl := "https://www.google.it/?test=" + strconv.Itoa(getRandomNumber())
 	url.DestinationUrl = destinationUrl
