@@ -1,0 +1,92 @@
+definitions:
+  helpers.DeletedResponse:
+    properties:
+      deleted:
+        type: boolean
+    type: object
+  helpers.ErrorRequest:
+    properties:
+      error:
+        type: string
+    type: object
+  models.Url:
+    properties:
+      destination_url:
+        type: string
+      id:
+        type: integer
+      short_url:
+        type: string
+    type: object
+info:
+  contact:
+    email: i.iaffaldano@gmail.com
+    name: Ivan Iaffaldano
+  description: This is a test.
+  license: {}
+  title: URL Shortener API
+  version: "1.0"
+paths:
+  /{shortUrl}:
+    get:
+      description: 'Redirect to Destination URL from Short Url, params example: http://localhost:8080/2SHcWFg'
+      parameters:
+      - description: short URL
+        in: path
+        name: short_url
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/helpers.ErrorRequest'
+        "301": {}
+      summary: Redirect Url to DestinationUrl
+  /api/create:
+    post:
+      description: 'get short URL from dest URL, params example: {"destination_url":"example"}'
+      parameters:
+      - description: destination URL
+        in: body
+        name: destination_url
+        required: true
+        schema:
+          type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/helpers.ErrorRequest'
+      summary: Create Short URL
+  /api/delete:
+    delete:
+      description: 'delete URL from Id, params example: http://localhost:8080/api/delete/2SHcWFg'
+      parameters:
+      - description: "1"
+        in: path
+        name: id
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/helpers.DeletedResponse'
+      summary: Delete Url
+  /api/get/{shortUrl}:
+    get:
+      description: 'get Destination URL from Short Url, params example: http://localhost:8080/api/get/2SHcWFg'
+      parameters:
+      - description: short URL
+        in: path
+        name: short_url
+        required: true
+        type: string
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Url'
+      summary: Get Destination URL from Short Url
+swagger: "2.0"

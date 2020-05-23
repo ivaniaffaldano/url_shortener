@@ -1,0 +1,23 @@
+# STRUCTURE PROJECT:
+# I create this small web MVC project without frameworks following this guidelines: https://www.restapiexample.com/golang-tutorial/golang-mvc-project-structure-without-framework/
+
+# HOW TO RUN PROGRAM:
+Download this code on your file system.
+To start project, you need to have GO (1) or Docker(2) pre-installed.
+The program will response on http://localhost:8080/
+API docs will response on http://localhost:8080/swagger/index.html (only local environment)
+You can change env vars in config/.env file.
+1(Go installed):
+    run in main folder these commands:
+     a. go build
+     b. go run url_shortener
+2.(Docker):
+    run in main folder these commands:
+    a. docker build . -t url_shortener
+    b. docker run --network="host" url_shortener
+
+# HOW TO RUN TEST:
+Exec the command "go test" inside the runtime environment.
+
+# DOCS Url: http://localhost:8080/swagger/index.html
+
